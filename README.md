@@ -1,4 +1,4 @@
 # COMP-348
-All code for Principles of Programming Languages course
+Principles of Programming Languages
 
-Hello
+Topics: Java, C, Lisp, Python
