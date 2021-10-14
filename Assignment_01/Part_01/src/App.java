@@ -1,5 +1,42 @@
+//-----------------------------------------------------
+//Assignment 1
+//Part: 1 
+//Written by: Brandon Tam 40100539
+//-----------------------------------------------------
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+
+        Shape[] shapes = new Shape[8];
+
+        // Populate shapes array
+        try {
+            BufferedReader br = new BufferedReader(
+                    new FileReader("D:\\Code\\COMP348\\Assignment_01\\Part_01\\src\\shapes.txt"));
+            int lines = 0;
+            String s;
+            while ((s = br.readLine()) != null) {
+                if (s.charAt(0) == 'R') {
+                    shapes[lines] = Rectangle.parse(s);
+                    lines += 1;
+                } else {
+                    shapes[lines] = Circle.parse(s);
+                    lines += 1;
+                }
+            }
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Sort array
+
+        // Print all shapes
+        Printable.print(java.util.Arrays.copyOf(shapes, shapes.length, Printable[].class));
+
     }
 }
