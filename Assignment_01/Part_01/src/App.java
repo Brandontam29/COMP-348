@@ -7,6 +7,8 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -34,6 +36,19 @@ public class App {
         }
 
         // Sort array
+        Arrays.sort(shapes, new Comparator<Shape>() {
+
+            public int compare(Shape o1, Shape o2) {
+                return Double.compare(o1.getArea(), o2.getArea());
+            }
+        });
+
+        Arrays.sort(shapes, new Comparator<Shape>() {
+
+            public int compare(Shape o1, Shape o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
 
         // Print all shapes
         Printable.print(java.util.Arrays.copyOf(shapes, shapes.length, Printable[].class));
