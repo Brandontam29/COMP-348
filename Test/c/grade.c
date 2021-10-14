@@ -26,6 +26,7 @@ int main()
         break;
     default:
         printf("Your %c is in the bottom 1%%", grade);
+        break;
     }
     return 0;
 }
