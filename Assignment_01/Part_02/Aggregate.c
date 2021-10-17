@@ -27,5 +27,11 @@ int main()
     printf("Avg %f\n", avg1);
     printf("Pseudo Avg %f\n", pseudo_avg1);
 
+    // FATAL ERROR test cases
+    printf("Null array element test\n");
+    min(arr1, size1 + 11);
+    printf("Invalid size test case\n");
+    min(arr1, -size1);
+
     return 0;
 }
