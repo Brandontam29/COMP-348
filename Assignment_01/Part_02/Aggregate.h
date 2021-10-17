@@ -18,7 +18,7 @@ float min(float arr[], int size)
 
     for (int i = 0; i < size; i++)
     {
-        if (isdigit(arr[i]))
+        if (!isdigit(arr[i]))
         {
             printf("FATAL ERROR in line %d\n", __LINE__);
         }
@@ -39,7 +39,7 @@ float max(float arr[], int size)
     float max = arr[0];
     for (int i = 0; i < size - 1; i++)
     {
-        if (isdigit(arr[i]))
+        if (!isdigit(arr[i]))
         {
             printf("FATAL ERROR in line %d\n", __LINE__);
         }
@@ -60,7 +60,7 @@ float sum(float arr[], int size)
     float sum = 0;
     for (int i = 0; i < size; i++)
     {
-        if (isdigit(arr[i]))
+        if (!isdigit(arr[i]))
         {
             printf("FATAL ERROR in line %d\n", __LINE__);
         }
@@ -87,7 +87,7 @@ float pseudo_avg(float arr[], int size)
     }
 
     int length = size;
-    if (isdigit(arr[0]) || isdigit(arr[length - 1]))
+    if (!isdigit(arr[0]) || !isdigit(arr[length - 1]))
     {
         printf("FATAL ERROR in line %d\n", __LINE__);
     }
