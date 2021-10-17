@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "aggregate.h": "c",
+        "stdio.h": "c"
+    }
+}

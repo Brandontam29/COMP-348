@@ -1,7 +1,7 @@
 //-----------------------------------------------------
 //Assignment 1
 //Part: 1 
-//Written by: Brandon Tam 40100539
+//Written by: Brandon Tam 40100539 and Valerie Courval
 //-----------------------------------------------------
 
 import java.io.BufferedReader;

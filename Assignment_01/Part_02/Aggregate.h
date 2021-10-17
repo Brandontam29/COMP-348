@@ -1,7 +1,7 @@
 //-----------------------------------------------------
 //Assignment 1
 //Part: 2
-//Written by: Brandon Tam 40100539
+//Written by: Brandon Tam 40100539 and Valerie Courval
 //-----------------------------------------------------
 
 #include <stdio.h>

@@ -1,12 +1,12 @@
 //-----------------------------------------------------
 //Assignment 1
 //Part: 2
-//Written by: Brandon Tam 40100539
+//Written by: Brandon Tam 40100539 and Valerie Courval
 //-----------------------------------------------------
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "Aggregate.h"
+#include "AGGREGATE.h"
 
 #define ARRAYLEN(ar) (int)(sizeof(ar) / (sizeof(ar[0])))
 
