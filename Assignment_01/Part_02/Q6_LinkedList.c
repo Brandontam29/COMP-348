@@ -138,11 +138,10 @@ int main(){
 	// ##################################
 
 	printf( "\nLinked Lists \n\n");
-	element list1 = { .type = LIST, .l = NULL};
-	element user_list = { .type = LIST, .l = &list1};
-	element list2 = { .type = LIST, .l = NULL};
-	element user_list2 = { .type = LIST, .l = &list2};
+	element user_list  = { .type = LIST, .l = NULL};
+	element user_list2 = { .type = LIST, .l = NULL};
 
+	// Creating list of each element containing our atoms
 	element e_a; 
 	element e_b;
 	element e_c;
@@ -167,7 +166,7 @@ int main(){
 	element l_d = { .type = LIST, .l = &e_d};
 	element l_e = { .type = LIST, .l = &e_e};
 
-
+	//Initializing the lists
 	append(&user_list.l, &l_a);
 
 	printf( "\n\nList #1: \n");  
@@ -193,10 +192,6 @@ int main(){
 
 	append(&user_list2.l, &l_e);
 
-	element user_list3 = { .type = LIST, .l = (cons(l_e, &list2))};
-
-	printf( "\n\nList #3: \n"); 
-	print(user_list3);
 
 
 
