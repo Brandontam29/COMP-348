@@ -1,9 +1,11 @@
-//-----------------------------------------------------
-//Assignment 1
-//Part: 2
-//Written by: Brandon Tam 40100539 and Valerie Courval
-//-----------------------------------------------------
 
+// --------------------------------------------------------------
+// Assignment 1
+// Part 2
+// Question 4 and 5
+// Written by: Valerie Courval 40101337 and  Brandon Tam 40100539
+// --------------------------------------------------------------
+//
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
