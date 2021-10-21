@@ -1,8 +1,10 @@
-//-----------------------------------------------------
-//Assignment 1
-//Part: 1 
-//Written by: Brandon Tam 40100539 and Valerie Courval
-//-----------------------------------------------------
+
+// --------------------------------------------------------------
+// Assignment 1
+// Part 1
+// Written by: Valerie Courval 40101337 and  Brandon Tam 40100539
+// --------------------------------------------------------------
+//
 
 import java.io.BufferedReader;
 import java.io.FileReader;
