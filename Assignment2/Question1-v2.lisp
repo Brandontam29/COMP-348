@@ -4,13 +4,6 @@
 ;; Written by: Valerie Courval 40101337 and  Brandon Tam 40100539
 ;; --------------------------------------------------------------
 
-(defun remove-last (list)
-    (loop for l on list
-        while (cdr l)
-        collect (car l)
-    )
-)
-
 (defun sub-list (llist from &optional to)
 
     (if (or (<= from 0) (> from (length llist)))
@@ -27,19 +20,11 @@
         (setq to (length llist))
     )
     
-    (let ((*new-list* llist))
-        (let ((n 0))
+    (let ((*new-list* '()))
+        (let ((n (- to 1) ))
             (loop 
-                (when (>= n (- from 1)) (return))
-                (setq *new-list* (cdr *new-list*))
-                (incf n)
-            )
-        )
-
-        (let ((n (length llist)))
-            (loop 
-                (when (<= n to) (return))
-                (setq *new-list* ( remove-last *new-list*))
+                (when (< n (- from 1)) (return)) 
+                (push (car (nthcdr n llist)) *new-list*)
                 (decf n)
             )
         )
@@ -49,8 +34,8 @@
     
 )
 
-;;; TEST CASES
-(print ( sub-list '(11 22 33 44 55) 2 4))   ;; (4 10)
+;;;; TEST CASES
+(print ( sub-list '(1 4 10) 2 3))   ;; (4 10)
 
 (print ( sub-list '(1 4 10) 2))     ;; (4 10)
 

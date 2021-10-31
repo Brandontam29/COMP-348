@@ -4,13 +4,6 @@
 ;; Written by: Valerie Courval 40101337 and  Brandon Tam 40100539
 ;; --------------------------------------------------------------
 
-(defun remove-last (list)
-    (loop for l on list
-        while (cdr l)
-        collect (car l)
-    )
-)
-
 (defun sub-list2 (llist from &optional to)
 
     (if (<= from 0)
@@ -25,19 +18,11 @@
         (return-from sub-list2 NIL)
     )
 
-    (let ((*new-list* llist))
-        (let ((n 0))
+    (let ((*new-list* '()))
+        (let ((n (- to 1)))
             (loop 
-                (when (>= n (- from 1)) (return))
-                (setq *new-list* (cdr *new-list*))
-                (incf n)
-            )
-        )
-
-        (let ((n (length llist)))
-            (loop 
-                (when (<= n to) (return))
-                (setq *new-list* ( remove-last *new-list*))
+                (when (< n (- from 1)) (return)) 
+                (push (car (nthcdr n llist)) *new-list*)
                 (decf n)
             )
         )
