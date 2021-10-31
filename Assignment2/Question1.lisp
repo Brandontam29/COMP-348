@@ -16,8 +16,12 @@
         )
     )
 
+    (if (eql to NIL) 
+        (setq to (length llist))
+    )
+    
     (let ((*new-list* '()))
-        (let ((n (- (if (eql to NIL) (length llist) to ) 1)))
+        (let ((n (- to 1)))
             (loop 
                 (when (< n (- from 1)) (return)) 
                 (push (car (nthcdr n llist)) *new-list*)
@@ -31,12 +35,12 @@
 )
 
 ;;;; TEST CASES
-;; (print ( sub-list '(1 4 10) 2 3))   ;; (4 10)
+(print ( sub-list '(1 4 10) 2 3))   ;; (4 10)
 
-;; (print ( sub-list '(1 4 10) 2))     ;; (4 10)
+(print ( sub-list '(1 4 10) 2))     ;; (4 10)
 
-;; (print ( sub-list '(1 7 12) 1 4))   ;; NIL
+(print ( sub-list '(1 7 12) 1 4))   ;; NIL
 
-;; (print ( sub-list '(1 7 12) 0 1))   ;; NIL
+(print ( sub-list '(1 7 12) 0 1))   ;; NIL
 
-;; (print ( sub-list '(1 6 12) 4 2))   ;; NIL
+(print ( sub-list '(1 6 12) 4 2))   ;; NIL
