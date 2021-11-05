@@ -9,31 +9,22 @@
 
 (defun checkLeft (lst)
     (if (null lst) t)
-    (and (> (car lst) (car (cdr lst))) 
-         (checkRight (cdr lst)) 
-         (checkLeft (car (cdr lst)))))
+    (if (and (< (caadr lst) (car lst)) 
+         (checkRight (car (cdr (cdr lst)))) 
+         (checkLeft (car (cdr lst)))) t))
 
 (defun checkRight (lst)
     (if (null lst) t)
-    (and (< (car lst) (car (cdr (car lst)))) 
-         (checkRight (cdr lst)) 
-         (checkLeft (car (cdr (cdr lst))))))
+    (if (and (< (car lst) (caaddr lst)) 
+         (checkRight (car (cdr (cdr lst)))) 
+         (checkLeft (car (cdr lst)))) t))
 
 (defun bstCheck (lst)
-    (cond 
-        ((null (car lst)) t)
-        ((listp (car lst))
-             (and (checkLeft lst) 
-                  (checkRight lst) 
-                  (btsCheck (second lst)) 
-                  (btsCheck (thrid lst))))
-        ))
-    
+     (if (null (car lst)) t)
+     (if (and (checkLeft (car (cdr lst))) 
+              (checkRight (car (cdr (cdr lst))))) 
+                  (write t)))
 
 (print "Testing the function with the examples in the assignment instructions: ")
 (print (bstCheck '(8 (3 (1 () ()) (6 (4 () ())(7 () ()))) (10 () (14 (13 () ()) ())))))
 (print (bstCheck '(8 (3 (15 () ()) (6 (4 () ())(7 () ()))) (10 () (14 (1 () ()) ())))))
-
-
-
-

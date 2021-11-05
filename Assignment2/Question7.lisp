@@ -7,12 +7,12 @@
 
 (print "Question 7: Center of Gravity")
 
-(defun NbWeights (ls)
-    (setq r 0)
+(defun NbWeights (ls &optional (res 0))
     (cond ((null ls) '0)
-          ((atom ls) (setq r (+ r 1)))
+          ((atom ls) '0)
           ((listp ls)
-             (setq r (+ (NbWeights (car ls)) (NbWeights (cdr ls)) r)))))
+             (+ (NbWeights (caadr ls)) (NbWeights (caaddr ls)) 1))
+    ))
 
 (defun size (ls)
     (cond ((null ls) '0)
@@ -35,7 +35,7 @@
                 ((atom lst)
                      )
                 ((listp lst) 
-                     (setq res (+ res (* (NbWeights ls) (- i N))))
+                     (setq res (+ res (* (NbWeights (car ls)) (- i N))))
                      (write (NbWeights ls))))
               (setq ls (cdr ls))
               )
