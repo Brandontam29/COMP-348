@@ -3,6 +3,20 @@
 ;; Question 1
 ;; Written by: Valerie Courval 40101337 and  Brandon Tam 40100539
 ;; --------------------------------------------------------------
+(defun nth-element (to llist)
+    (let ((*new-list* llist))
+        (let ((n 0))
+            (loop 
+                (when (> n (- to 1)) (return))
+                (setq *new-list* (cdr *new-list*))
+                (setq n (+ n 1))
+            )
+        )
+
+        (return-from nth-element *new-list*)
+    )
+)
+
 
 (defun sub-list2 (llist from &optional to)
 
@@ -22,8 +36,8 @@
         (let ((n (- to 1)))
             (loop 
                 (when (< n (- from 1)) (return)) 
-                (push (car (nthcdr n llist)) *new-list*)
-                (decf n)
+                (setq *new-list* (cons (car ( nth-element n llist)) *new-list*))
+                (setq n (- n 1))
             )
         )
 

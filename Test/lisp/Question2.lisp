@@ -11,28 +11,26 @@
     )
 )
 
-(defun sub-list (llist from &optional to)
+(defun sub-list2 (llist from &optional to)
 
-    (if (or (<= from 0) (> from (length llist)))
-        (return-from sub-list NIL)
+    (if (<= from 0)
+        (setq from 1)
     )
-
-    (if (not (eql to NIL))
-        (if (or (<= to 0) (> to (length llist)))
-            (return-from sub-list NIL)
-        )
-    )
-
-    (if (eql to NIL) 
+  
+    (if (or (eql to NIL) (> to (length llist)))
         (setq to (length llist))
     )
-    
+
+    (if (> from to)
+        (return-from sub-list2 NIL)
+    )
+
     (let ((*new-list* llist))
         (let ((n 0))
             (loop 
                 (when (>= n (- from 1)) (return))
                 (setq *new-list* (cdr *new-list*))
-                (incf n)
+                (setq n (+ n 1))
             )
         )
 
@@ -40,22 +38,22 @@
             (loop 
                 (when (<= n to) (return))
                 (setq *new-list* ( remove-last *new-list*))
-                (decf n)
+                (setq n (- n 1))
             )
         )
 
-        (return-from sub-list *new-list*)
+        (return-from sub-list2 *new-list*)
     )
     
 )
 
-;;; TEST CASES
-(print ( sub-list '(11 22 33 44 55) 2 4))   ;; (4 10)
+;;;; TEST CASES
+(print ( sub-list2 '(1 4 10) 2 3))   ;; (4 10)
 
-(print ( sub-list '(1 4 10) 2))     ;; (4 10)
+(print ( sub-list2 '(1 4 10) 2))     ;; (4 10)
 
-(print ( sub-list '(1 7 12) 1 4))   ;; NIL
+(print ( sub-list2 '(1 7 12) 1 4))   ;; (1 7 12)
 
-(print ( sub-list '(1 7 12) 0 1))   ;; NIL
+(print ( sub-list2 '(1 7 12) 0 1))   ;; (1)
 
-(print ( sub-list '(1 6 12) 4 2))   ;; NIL
+(print ( sub-list2 '(1 6 12) 4 2))   ;; NIL
