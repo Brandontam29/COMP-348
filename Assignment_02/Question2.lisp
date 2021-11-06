@@ -1,8 +1,9 @@
 ;; --------------------------------------------------------------
 ;; Assignment 2
-;; Question 1
+;; Question 2
 ;; Written by: Valerie Courval 40101337 and  Brandon Tam 40100539
 ;; --------------------------------------------------------------
+
 (defun nth-element (to llist)
     (let ((*new-list* llist))
         (let ((n 0))
@@ -17,7 +18,8 @@
     )
 )
 
-(defun sub-list3 (llist from &optional to)
+
+(defun sub-list2 (llist from &optional to)
 
     (if (<= from 0)
         (setq from 1)
@@ -28,30 +30,30 @@
     )
 
     (if (> from to)
-        (return-from sub-list3 NIL)
+        (return-from sub-list2 NIL)
     )
 
     (let ((*new-list* '()))
-        (let ((n (- from 1)))
+        (let ((n (- to 1)))
             (loop 
-                (when (> n (- to 1)) (return))
+                (when (< n (- from 1)) (return)) 
                 (setq *new-list* (cons (car ( nth-element n llist)) *new-list*))
-                (setq n (+ n 1))
+                (setq n (- n 1))
             )
         )
 
-        (return-from sub-list3 *new-list*)
+        (return-from sub-list2 *new-list*)
     )
     
 )
 
 ;;;; TEST CASES
-(print ( sub-list3 '(1 4 10) 2 3))   ;; (10 4)
+(print ( sub-list2 '(1 4 10) 2 3))   ;; (4 10)
 
-(print ( sub-list3 '(1 4 10) 2))     ;; (10 4)
+(print ( sub-list2 '(1 4 10) 2))     ;; (4 10)
 
-(print ( sub-list3 '(1 7 12) 1 4))   ;; (12 7 1)
+(print ( sub-list2 '(1 7 12) 1 4))   ;; (1 7 12)
 
-(print ( sub-list3 '(1 7 12) 0 1))   ;; (1)
+(print ( sub-list2 '(1 7 12) 0 1))   ;; (1)
 
-(print ( sub-list3 '(1 6 12) 4 2))   ;; NIL
+(print ( sub-list2 '(1 6 12) 4 2))   ;; NIL
