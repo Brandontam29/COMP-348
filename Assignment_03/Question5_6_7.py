@@ -152,7 +152,7 @@ def find_nth(haystack, needle, n):
 # QUESTION 6
 shapeArr = []
 
-text = open('Assignment_03/shapes.txt', 'r')
+text = open('Assignment_03/shape_input.txt', 'r')
 shapes = text.readlines()
 # Find the information about each shape
 for shape in shapes:

@@ -123,7 +123,7 @@ print("\n\nQuestion 7:")
 stats={}
 stats['Shape'] = 0
 
-fo = open("shape_input.txt", "r")
+fo = open("shapes.txt", "r")
 lines = fo.readlines()
 for line in lines: 
     name = line.split(' ')
